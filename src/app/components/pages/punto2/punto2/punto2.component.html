@@ -1,0 +1,13 @@
+<div class="container mt-5 mb-5">
+    <h1 class="titulo text-center"><strong>Juego del ahorcado</strong></h1>
+    <app-punto2-imagen [aciertos]="aciertos" [pregunta]="pregunta" (gameFinished)="onGameFinished()"></app-punto2-imagen>
+    <ng-container *ngIf="!restartGameBtnShown else restartGameBtn">
+        <app-punto2-palabra [aciertos]="aciertos" [pregunta]="pregunta"></app-punto2-palabra>
+        <app-punto2-teclado [pregunta]="pregunta" (keyPressed)="acierto($event)"></app-punto2-teclado>
+    </ng-container>
+    <ng-template #restartGameBtn>
+        <div class="text-center">
+            <button class="btn btn-lg btn-info" (click)="reset()">{{'NUEVO JUEGO'}}</button>
+        </div>
+    </ng-template>
+</div>

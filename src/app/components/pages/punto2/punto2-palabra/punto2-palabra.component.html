@@ -1,0 +1,7 @@
+<div class="characters col-4">
+    <div class="character" *ngFor="let char of caracteres">
+      <div class="character-name">
+        {{char.guessed? char.value : ''}}
+      </div>
+    </div>
+  </div>
